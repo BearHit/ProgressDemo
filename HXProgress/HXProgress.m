@@ -11,6 +11,7 @@
 @interface HXProgress()
 
 @property (nonatomic, assign)  BOOL canShow;
+@property (nonatomic, strong)  CSToastStyle *style;
 
 @end
 
@@ -18,7 +19,7 @@
 @implementation HXProgress
 
 
-+ (id)sharedInstance{
++ (instancetype)sharedInstance{
     static HXProgress * instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -30,6 +31,10 @@
 
 + (UIView *)currView {
     return [self getCurrentActivityViewController].view;
+}
+
++ (void)setToastStyle:(CSToastStyle *)style {
+    [HXProgress sharedInstance].style = style;
 }
 
 + (UIViewController *)getCurrentActivityViewController {
@@ -98,6 +103,10 @@
     [self showToastWithMsg:msg showTime:ShowToastTime inView:[self currView]];
 }
 
++ (void)showToastWithMsg:(NSString *)msg showTime:(CGFloat)showTime {
+    [self showToastWithMsg:msg showTime:showTime inView:nil];
+}
+
 + (void)showToastWithMsg:(NSString *)msg showTime:(CGFloat)showTime inView:(UIView *)view {
     if (msg == nil || msg.length == 0) {
         return;
@@ -105,23 +114,25 @@
     if (view == nil) {
         view = [self currView];
     }
-    
+    if (!view) {
+        return;
+    }
     if ([[HXProgress sharedInstance] canShow]) {
         [[HXProgress sharedInstance] setCanShow:NO];
         [view makeToast:msg
-                          duration:showTime
-                          position:[CSToastManager defaultPosition]
-                             title:nil
-                             image:nil
-                             style:nil
-                        completion:^(BOOL didTap) {
-                            if (didTap) {
-                                NSLog(@"completion from tap");
-                            } else {
-                                NSLog(@"completion without tap");
-                            }
-                            [[HXProgress sharedInstance] setCanShow:YES];
-                        }];
+               duration:showTime
+               position:[CSToastManager defaultPosition]
+               title:nil
+               image:nil
+               style:[HXProgress sharedInstance].style?:nil
+               completion:^(BOOL didTap) {
+            if (didTap) {
+                NSLog(@"completion from tap");
+            } else {
+                NSLog(@"completion without tap");
+            }
+            [[HXProgress sharedInstance] setCanShow:YES];
+        }];
         
     }
 }
@@ -133,6 +144,9 @@
     if (msg == nil || msg.length == 0) {
         return;
     }
+    if (![self currView]) {
+        return;
+    }
     
     if ([[HXProgress sharedInstance] canShow]) {
         [[HXProgress sharedInstance] setCanShow:NO];
@@ -141,12 +155,10 @@
                position:[CSToastManager defaultPosition]
                   title:title
                   image:image
-                  style:nil
+                  style:[HXProgress sharedInstance].style?:nil
              completion:^(BOOL didTap) {
                  if (didTap) {
-                     NSLog(@"completion from tap");
                  } else {
-                     NSLog(@"completion without tap");
                  }
                  [[HXProgress sharedInstance] setCanShow:YES];
              }];
@@ -175,7 +187,7 @@
 //    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
 //    [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:1]];
 //    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
-//    
+//
 //    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
     style();
 }

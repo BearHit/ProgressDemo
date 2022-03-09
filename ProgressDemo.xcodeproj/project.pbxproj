@@ -16,6 +16,7 @@
 		138616461F8DB2030080EA70 /* HXProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 138616451F8DB2030080EA70 /* HXProgress.m */; };
 		13A144B12315239A00F54F1D /* Localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13A144B32315239A00F54F1D /* Localize.strings */; };
 		13C64CB91F90612E0084FA17 /* qqq.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C64CB81F90612E0084FA17 /* qqq.png */; };
+		18EFB68827D83A8700C26676 /* HXProgressHUD.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 18EFB68727D83A8700C26676 /* HXProgressHUD.podspec */; };
 		E322484D1519706286C4BBFE /* libPods-ProgressDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E19A7054998C47246BEB2F /* libPods-ProgressDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		13C64CB81F90612E0084FA17 /* qqq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qqq.png; sourceTree = "<group>"; };
 		188D3AD4F7D5A84EB7069470 /* Pods-ProgressDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgressDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProgressDemo/Pods-ProgressDemo.release.xcconfig"; sourceTree = "<group>"; };
 		18E8EC4C696704641112B7B8 /* Pods-ProgressDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgressDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProgressDemo/Pods-ProgressDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		18EFB68727D83A8700C26676 /* HXProgressHUD.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = HXProgressHUD.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		138616281F8DA5740080EA70 /* ProgressDemo */ = {
 			isa = PBXGroup;
 			children = (
+				18EFB68727D83A8700C26676 /* HXProgressHUD.podspec */,
 				13C64CB81F90612E0084FA17 /* qqq.png */,
 				1386163F1F8DACE00080EA70 /* HXProgress */,
 				138616291F8DA5740080EA70 /* AppDelegate.h */,
@@ -125,7 +128,6 @@
 				138616221F8DA5740080EA70 /* Sources */,
 				138616231F8DA5740080EA70 /* Frameworks */,
 				138616241F8DA5740080EA70 /* Resources */,
-				0F9378063E22B25BE3488931 /* [CP] Embed Pods Frameworks */,
 				862E81CEB5BF55D09EC49EDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -176,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A144B12315239A00F54F1D /* Localize.strings in Resources */,
+				18EFB68827D83A8700C26676 /* HXProgressHUD.podspec in Resources */,
 				138616361F8DA5740080EA70 /* LaunchScreen.storyboard in Resources */,
 				138616331F8DA5740080EA70 /* Assets.xcassets in Resources */,
 				13C64CB91F90612E0084FA17 /* qqq.png in Resources */,
@@ -186,21 +189,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F9378063E22B25BE3488931 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProgressDemo/Pods-ProgressDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4119EF838D57CCEA5CEC0185 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,16 +213,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ProgressDemo/Pods-ProgressDemo-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ProgressDemo/Pods-ProgressDemo-resources.sh",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProgressDemo/Pods-ProgressDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProgressDemo/Pods-ProgressDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

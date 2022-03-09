@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HXProgressHUD"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "对SVProgressHUD 以及 Toast 二次封装，便于使用"
 
   # This description is used to generate tags and improve search results.
@@ -25,9 +25,12 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  提示框 加载 以及 提示toast
-        对SVProgressHUD 以及 Toast 二次封装，便于使用
-                   DESC
+            提示框 加载 以及 提示toast
+            对SVProgressHUD 以及 Toast 二次封装，便于使用
+            1.0.6 修复keywindow未设置时导致后续无法显示toast问题
+                   
+ DESC
+                   
 
   s.homepage     = "https://github.com/EarthMass/ProgressDemo"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -81,7 +84,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/EarthMass/ProgressDemo.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/BearHit/ProgressDemo.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

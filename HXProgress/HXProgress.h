@@ -32,7 +32,7 @@ static NSString * msg = @"加载中..."; //hud msg
  */
 + (void)setToastPosition:(id)position style:(CSToastStyle *)style isTapDismiss:(BOOL)isTapDismiss;
 
-+ (void)setToastStyle:(void(^)(void))style;
++ (void)setToastStyle:(CSToastStyle *)style;
 + (void)showToastWithMsg:(NSString *)msg;
 + (void)showToastWithMsg:(NSString *)msg showTime:(CGFloat)showTime;
 
@@ -96,5 +96,7 @@ static NSString * msg = @"加载中..."; //hud msg
 
 
 + (void)setProgressHUDStyle:(void(^)(void))style;
+
+
 
 @end
